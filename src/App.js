@@ -1,10 +1,9 @@
 import './App.css';
+import Stream from './components/Stream.js';
 
 function App() {
   return (
-   <div>
-    <img src=''></img>
-   </div>
+   <Stream/>
   );
 }
 

@@ -1,0 +1,39 @@
+.displayName{
+    font-weight: bold;
+}
+.userName{
+    color: rgba(0, 0, 0, 0.481);
+}
+.date{
+    color: rgba(0, 0, 0, 0.481);
+}
+.tweet{
+    display: flex;
+}
+.pfp{
+    padding: 10px;
+}
+.pfp img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.footer{
+    display: flex;
+}
+.footer div{
+    padding: 10px;
+    width: 70px;
+}
+svg{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.tweet{
+    border: 0.5px solid grey;
+    padding: 20px 0px 20px 0px;
+}
+.date, .userName{
+    margin-left: 6px;
+}
