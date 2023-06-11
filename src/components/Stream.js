@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import { fetchTweets } from '../data/tweets.js';
 
 export default function Stream() {
-    let[tweets, setTweets] = useState([]);
+    let [tweets, setTweets] = useState([]);
 
     useEffect(() => {
         fetchTweets().then(data => setTweets(data));
