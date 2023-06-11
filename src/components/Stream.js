@@ -35,7 +35,7 @@ export default function Stream() {
 
     return (
         <>
-            {tweets.map((t, index) => <Tweet {...t} onLike={() => like(index)} />)}
+            {tweets.map((t, index) => <Tweet key={index} {...t} onLike={() => like(index)} />)}
 
         </>
     );
