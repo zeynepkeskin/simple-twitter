@@ -1,0 +1,26 @@
+.signup {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+    align-items: center;
+}
+.signup input {
+    margin-bottom: 15px;
+}
+
+.signup button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 17px;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 5px;
+}
+
+.signup button:hover{
+    background-color: rgb(75, 75, 75);
+}
