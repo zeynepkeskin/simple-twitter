@@ -1,6 +1,6 @@
 // AuthContext.js
 
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 // Create the AuthContext
 export const AuthContext = createContext();
@@ -16,7 +16,8 @@ export const AuthProvider = ({ children }) => {
     // You can use axios, fetch, or any other library to make the request
 
     // Example using axios
-    axios.post('/login', authData)
+    axios
+      .post("/login", authData)
       .then((response) => {
         const { token, user } = response.data;
         setToken(token);

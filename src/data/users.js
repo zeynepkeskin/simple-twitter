@@ -1,15 +1,15 @@
 export function login() {
-    return "psuedo token"
+  return "psuedo token";
 }
 
 export function signUp() {
-    return getProfileData()
+  return getProfileData();
 }
 
-export function getProfileData(){
-    return {
-        username: "zeynep",
-        fullname: "Zeynep Keskin",
-        avatar: "/img/zeynep.jpg"
-    };
+export function getProfileData() {
+  return {
+    username: "zeynep",
+    fullname: "Zeynep Keskin",
+    avatar: "/img/zeynep.jpg",
+  };
 }
