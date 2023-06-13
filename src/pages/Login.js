@@ -6,7 +6,7 @@ export default function Login() {
   let [userData, setUserData] = useState({});
 
   function doLogin() {
-    let token = login();
+    let token = login(userData);
   }
 
   return (
