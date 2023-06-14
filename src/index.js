@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import AuthContext from "./components/AuthContext";
+import { AuthProvider } from "./components/AuthContext";
 import Signup from "./pages/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthContext>
+    <AuthProvider>
       <div className="header">
         <a href="/">
           <img src="/img/logo.png" />
@@ -23,6 +23,6 @@ root.render(
           <Route path="/signup" element={<Signup />} />
         </Routes>
       </Router>
-    </AuthContext>
+    </AuthProvider>
   </React.StrictMode>
 );

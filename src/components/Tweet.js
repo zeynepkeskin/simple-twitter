@@ -3,6 +3,7 @@ import { MdReply, MdShare } from "react-icons/md";
 import { FaRetweet } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AuthContext } from "./AuthContext";
+import { useContext } from "react";
 
 export default function Tweet(props) {
   const { token, user } = useContext(AuthContext);

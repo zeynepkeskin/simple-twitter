@@ -21,13 +21,14 @@ export const AuthProvider = ({ children }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(authData),
     })
       .then((response) => response.json())
       .then((responseData) => {
         const { token, user } = responseData;
         setToken(token);
         setUser(user);
+        window.location.href = "/";
       })
       .catch((error) => {
         // Handle any errors that occur during the request
