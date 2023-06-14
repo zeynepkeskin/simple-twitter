@@ -7,16 +7,34 @@ export const AuthContext = createContext();
 
 // Create the AuthProvider component
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState(null);
 
-  const login = (authData) => {
-    // Make the API request to login and handle the response
-    // Set the token and user state variables based on the response
-    // You can use axios, fetch, or any other library to make the request
-    const url = "http://localhost:3005/api/users/login";
+  useEffect(() => {
+    // Fetch the user profile when the token changes
+    if (token) {
+      fetchUserProfile();
+    }
+  }, [token]);
 
-    fetch(url, {
+  const fetchUserProfile = () => {
+    fetch("http://localhost:3005/api/users/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the request
+        console.error("Error:", error);
+      });
+  };
+
+  const login = (authData) => {
+    fetch("http://localhost:3005/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,6 +46,7 @@ export const AuthProvider = ({ children }) => {
         const { token, user } = responseData;
         setToken(token);
         setUser(user);
+        localStorage.setItem("token", token);
         window.location.href = "/";
       })
       .catch((error) => {
@@ -37,9 +56,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    // Perform any necessary cleanup or API request to logout the user
     setToken(null);
     setUser(null);
+    localStorage.removeItem("token");
   };
 
   const authContextValue = {
