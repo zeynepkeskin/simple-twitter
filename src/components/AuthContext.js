@@ -1,6 +1,6 @@
 // AuthContext.js
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 // Create the AuthContext
 export const AuthContext = createContext();
@@ -24,8 +24,8 @@ export const AuthProvider = ({ children }) => {
       },
     })
       .then((response) => response.json())
-      .then((user) => {
-        setUser(user);
+      .then((data) => {
+        setUser(data.user);
       })
       .catch((error) => {
         // Handle any errors that occur during the request

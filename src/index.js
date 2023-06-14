@@ -13,7 +13,7 @@ root.render(
       <div className="header">
         <a href="/">
           <img src="/img/logo.png" />
-          Twitter
+          ChirpChirp
         </a>
       </div>
       <Router>

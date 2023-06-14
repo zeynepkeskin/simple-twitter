@@ -3,13 +3,14 @@ import { AuthContext } from "./AuthContext";
 
 export default function AddTweet() {
   let [tweet, setTweet] = useState({
-    displayName: "",
+    text: "say something",
   });
-  let { user, token } = useContext(AuthContext);
+  let { user } = useContext(AuthContext);
+
   return (
     <div className="tweet">
       <div className="pfp">
-        <img src={user.avatar} />
+        <img src={"/img/" + user.avatar} />
       </div>
       <div className="content">
         <div className="header">
@@ -19,7 +20,9 @@ export default function AddTweet() {
         <p className="text">
           <textarea
             onChange={(event) => setTweet({ text: event.target.value })}
-          ></textarea>
+          >
+            {tweet.text}
+          </textarea>
         </p>
 
         <div className="footer"></div>
