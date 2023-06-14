@@ -1,13 +1,12 @@
 import { useState } from "react";
 import "./Login.css";
 import { login } from "../data/users";
+import { AuthContext } from "../components/AuthContext";
 
 export default function Login() {
   let [userData, setUserData] = useState({});
 
-  function doLogin() {
-    let token = login(userData);
-  }
+  const { login } = useContext(AuthContext);
 
   return (
     <div className="login">
@@ -31,7 +30,7 @@ export default function Login() {
           })
         }
       />
-      <button onClick={doLogin}>Login</button>
+      <button onClick={() => login(userData)}>Login</button>
     </div>
   );
 }

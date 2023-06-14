@@ -14,17 +14,24 @@ export const AuthProvider = ({ children }) => {
     // Make the API request to login and handle the response
     // Set the token and user state variables based on the response
     // You can use axios, fetch, or any other library to make the request
+    const url = "http://localhost:3005/api/users/login";
 
-    // Example using axios
-    axios
-      .post("/login", authData)
-      .then((response) => {
-        const { token, user } = response.data;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        const { token, user } = responseData;
         setToken(token);
         setUser(user);
       })
       .catch((error) => {
-        // Handle login error
+        // Handle any errors that occur during the request
+        console.error("Error:", error);
       });
   };
 
